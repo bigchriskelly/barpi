@@ -1,0 +1,19 @@
+CREATE TABLE keg (
+keg CHAR(1) NOT NULL,
+time DATETIME NOT NULL,
+temp FLOAT NOT NULL,
+zeroWeight FLOAT,
+weight FLOAT NOT NULL,
+contents VARCHAR(20),
+strength FLOAT );
+
+insert into keg
+(keg, time, temp, zeroWeight, weight, contents, strength)
+values
+("l", curdate(), 1.4, 4500, 9000, "DIPA KVEIK", 8.2);
+
+
+insert into keg
+(keg, time, temp, weight)
+values
+("l", curdate(), 1.5, 8700);
