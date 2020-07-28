@@ -1,19 +1,54 @@
-CREATE TABLE keg (
+use ratarsedberrypi;
+
+CREATE TABLE measurements (
+id int,
 keg CHAR(1) NOT NULL,
 time DATETIME NOT NULL,
 temp FLOAT NOT NULL,
+weight FLOAT NOT NULL
+);
+
+INSERT INTO `ratarsedberrypi`.`measurements`
+(`id`,
+`keg`,
+`time`,
+`temp`,
+`weight`)
+VALUES
+(1,
+"L",
+now(),
+4.1,
+17.45);
+
+
+
+------
+
+create table keg(
+id int,
+keg CHAR(1) NOT NULL,
+time DATETIME NOT NULL,
 zeroWeight FLOAT,
-weight FLOAT NOT NULL,
 contents VARCHAR(20),
-strength FLOAT );
-
-insert into keg
-(keg, time, temp, zeroWeight, weight, contents, strength)
-values
-("l", curdate(), 1.4, 4500, 9000, "DIPA KVEIK", 8.2);
+strength FLOAT,
+active bool
+)
 
 
-insert into keg
-(keg, time, temp, weight)
-values
-("l", curdate(), 1.5, 8700);
+INSERT INTO `ratarsedberrypi`.`keg`
+(`id`,
+`keg`,
+`time`,
+`zeroWeight`,
+`contents`,
+`strength`,
+`active`)
+VALUES
+(1,
+"L",
+now(),
+4.4,
+"POWER Cider",
+10.3,
+1);
