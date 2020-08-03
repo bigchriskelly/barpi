@@ -4,23 +4,24 @@ import time
 
 import RPi.GPIO as GPIO
 
-print("hih")
+print("set")
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.OUT)
-GPIO.output(17, GPIO.HIGH)
+time.sleep(5)
 
+print("set out")
+GPIO.setup(17, GPIO.OUT)
 time.sleep(5)
 
 print("low")
-GPIO.output(17, GPIO.LOW)
-
+GPIO.setup(17, GPIO.IN)
 time.sleep(5)
 
 print("high")
-GPIO.output(17, GPIO.HIGH)
-
+GPIO.setup(17, GPIO.OUT)
 time.sleep(5)
 
-print ("off")
+print("clean")
 GPIO.cleanup()
+time.sleep(5)
 
+print("end")
