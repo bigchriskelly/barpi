@@ -3,24 +3,29 @@
 import time
 
 import RPi.GPIO as GPIO
+from database import update_relay_DB
 
-print("hih")
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.OUT)
-GPIO.output(17, GPIO.HIGH)
+pin = 17
+#from database import update_relay_DB 
+#GPIO.setmode(GPIO.BCM)
+#GPIO.setup(17, GPIO.OUT)
+#print(GPIO.gpio_function(17))
+#time.sleep(5)
+#GPIO.setup(17, GPIO.IN)
+#print(GPIO.gpio_function(17))
+#time.sleep(5)
+#GPIO.setup(17, GPIO.OUT)
+#print(GPIO.gpio_function(17))
+#time.sleep(5)
+#GPIO.cleanup()
 
-time.sleep(5)
+def update_relay(state):
+    GPIO.setmode(GPIO.BCM)
+    GPIO.setup(pin, GPIO.OUT)
+    GPIO.output(pin, GPIO.HIGH)
+    update_relay_DB(state)
 
-print("low")
-GPIO.output(17, GPIO.LOW)
-
-time.sleep(5)
-
-print("high")
-GPIO.output(17, GPIO.HIGH)
-
-time.sleep(5)
-
-print ("off")
-GPIO.cleanup()
-
+def get_relay_status():
+    GPIO.setmode(GPIO.BCM)
+    return GPIO.gpio_function(pin)
+    

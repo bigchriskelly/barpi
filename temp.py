@@ -26,14 +26,10 @@ def read_temp(sensor_index):
         temp_string = "Keg " + str(sensor_index + 1) + ": " + str(temp_c)
         return temp_c
 
-def record_temp():
-    sensor_index = 0 
+def record_temp(sensor_index):
     base_dir = '/sys/bus/w1/devices/'
     device_postfix = '/w1_slave'
-    while sensor_index < 2 :
-        #print(read_temp(sensor_index))
-        #temp = read_temp(sensor_index)
-        temp = 3
-        update_temp (sensor_index, temp)
-        sensor_index += 1 
+    #print(read_temp(sensor_index))
+    temp = read_temp(sensor_index)
+    update_temp (sensor_index, temp) 
     return temp 
